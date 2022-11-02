@@ -67,3 +67,5 @@ install.packages("RSelenium") ## execute to install rselenium
 ```
 
 You will also need to download the Selenium binary. You can do this from [here](https://selenium-release.storage.googleapis.com/index.html?path=4.0/). Get the file that says `selenium-server-standalone-4.0.0-alpha-1.jar`. Download and execute this file as you would with a .exe file.
+
+Also check if you have java installed on your machine. One way to do this is to execute `java -version` in your cmd or terminal.
