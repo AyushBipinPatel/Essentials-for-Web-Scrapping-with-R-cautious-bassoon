@@ -4,6 +4,7 @@ author: "Ayush Patel"
 format: 
   revealjs:
     self-contained: true
+    slide-number: c/t
     width: 1400
     theme: [serif, theme.scss]
 ---
@@ -433,3 +434,57 @@ __Other Inputs (trim)__ : Remove spaces from the beginning and end
 . . .
 
 _Returns a character vector._
+
+## `html_text()` example
+
+```{r echo=TRUE}
+looney_chars|>
+  rvest::html_text() -> looney_chars_text
+
+looney_chars_text
+
+```
+
+## `html_table()`^[Details from Documentation]{.smaller}
+
+Along with text, there are _tables_ on webpages that we want.
+
+. . . 
+
+__Required Input (x)__: A document, node or nodes. It expects the outputs of either of `read_html`, `html_elements`
+
+. . . 
+
+__Other Inputs (header)__: Sets first row as the column names when set to `TRUE`, if set to `NA` it will use the first row as header if there is a <th> tag
+
+. . . 
+
+__Other Inputs (trim)__ : Remove spaces from the beginning and end
+
+. . .
+
+__Other Inputs (dec)__ : Which character to use as a decimal. Some countries have , as a decimal.
+
+. . . 
+
+_Returns a tibble or list of tibbles if applied on multiple elements_
+
+## `html_table()` example
+
+Go to [Department of Expenditure's contact details](https://doe.gov.in/whos-who) page.
+
+. . .
+
+We want the tables on this page.
+
+. . .
+
+```{r echo=TRUE}
+rvest::read_html("https://doe.gov.in/whos-who")|>
+  rvest::html_elements("table")|>
+  rvest::html_table()
+```
+
+## There is much more to learn about {rvest} {style="text-align:center;padding:250px 0"}
+
+__What we have covered is sufficient as a building block of working knowledge to scrape webpages.__
