@@ -4,7 +4,8 @@ author: "Ayush Patel"
 format: 
   revealjs:
     self-contained: true
-    theme: beige
+    width: 1400
+    theme: [serif, theme.scss]
 ---
 
 ## Why are you here
@@ -103,11 +104,13 @@ This is how html looks ^[An example from W3School].
 Below is an HTML Element.
 
 :::{.fragment .grow}
+:::{.fragment .shrink}
 
 ```
 <tag>stuff to be displayed on the webpage </tag>
 
 ```
+:::
 :::
 
 :::{.fragment}
@@ -341,3 +344,74 @@ tibble::tibble(
 
 ```
 
+## Details of Rvest functions {style="text-align:center;padding:100px 0"}
+
+<img src = "https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/rvest.png" style="width:500px;height:500px;margin-left:au;margin-right:auto;">
+
+## `read_html()` ^[Details from documentation]
+
+
+__Required Input__: The URL of the webpage as string. Can be other things literal xml or html
+
+<br>
+
+. . . 
+
+__Output__: html code. The class of the output is usually xml_document, xml_node
+
+<br>
+
+. . . 
+
+This function is used to get all the details(html code) of a webpage. 
+This output can be further used to extract desired parts
+
+## `read_html` example {auto-animate=true}
+
+```{r echo=TRUE}
+rvest::read_html("https://www.giantbomb.com/looney-tunes/3025-714/characters/") -> looney_page
+
+looney_page
+```
+
+`looney_page` has the html code for the webpage from exercise.
+
+## `html_elements()` or `html_element()` ^[Details from documentation] {.smaller auto-animate=true}
+
+__Required Input (x)__: A document, node or nodes. Like `looney_page`
+
+<br>
+
+. . . 
+
+__Required Input (css or xpath)__: Either of CSS selector value or the xpath of the desired element(s). Like `h3.title` or `//*[@id="wiki-3025-714-characters"]/ul[1]/li[1]/a/h3`
+
+<br>
+
+. . . 
+
+__Output__: Finds the elements specified elements and returns. Class of the output is usually xml_node or xml_nodeset.
+
+<br>
+
+. . . 
+
+[Difference between `html_element()` and `html_elements()`](https://rvest.tidyverse.org/reference/html_element.html)
+
+## `html_elements()` or `html_element()` example {.smaller .scrollable}
+
+```{r echo=TRUE}
+looney_page |>
+  rvest::html_elements("h3.title") -> looney_chars
+
+looney_chars
+```
+
+`looney_chars` has the characters from the webpage, but not it _text or string format_.
+
+```{r echo=TRUE}
+looney_page |>
+  rvest::html_elements(xpath = '//*[@id="wiki-3025-714-characters"]/ul[1]/li[1]/a/h3')
+```
+
+## 
