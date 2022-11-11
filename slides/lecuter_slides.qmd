@@ -1,0 +1,343 @@
+---
+title: "Essentials for Web Scrapping with R"
+author: "Ayush Patel"
+format: 
+  revealjs:
+    self-contained: true
+    theme: beige
+---
+
+## Why are you here
+
+::::{.columns}
+
+:::{.column width="65%"}
+
+There is stuff you want from web pages.
+
+You know R.
+
+::: {.fragment}
+<b>Here you can learn how to use R to get stuff from web page.</b>
+:::
+
+:::
+
+:::{.column width="35%"}
+
+<iframe src="https://giphy.com/embed/G1ifnX4d5tYFACktp9" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/data-own-your-my-G1ifnX4d5tYFACktp9">via GIPHY</a></p>
+
+:::
+
+::::
+
+## Concepts you need to know before hand 
+
+:::{.incremental}
+- What are lists, vectors and data frames
+- How to subset these 
+- How to use a function
+- Use the pipe operator ( %>% or |>)
+
+:::
+
+## How are we going about learning this
+
+:::{.incremental}
+
+- Learn some absolute essentials of HTML^[All materials for this topic are from [W3School](https://www.w3schools.com/html/default.asp)]
+- Do a quick silly scrapping exercise using `{rvest}` functions
+- Learn essential functions of `{rvest}`
+- A detour to writing simple functions and iterating using `{purrr}` functions
+- Learn foundations of `{Rselenium}` for browser automation
+
+:::
+
+## What is HTML? {auto-animate=true}
+
+::::{.columns}
+
+:::{.column width="65%"}
+
+A markup language. _What is a markup language?_
+
+:::{.fragment}
+Structure of the webpage
+:::
+
+:::{.fragment}
+Has Elements. _What are elements?_
+:::
+
+:::{.fragment}
+Elements tells browser how to display content
+:::
+
+:::
+
+:::{.column width="35%"}
+This is how html looks ^[An example from W3School].
+
+
+```
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+</html>
+
+```
+
+:::
+
+::::
+
+## What are Elements ? {.smaller auto-animate=true}
+
+Below is an HTML Element.
+
+:::{.fragment .grow}
+
+```
+<tag>stuff to be displayed on the webpage </tag>
+
+```
+:::
+
+:::{.fragment}
+Starts with `<tag>`
+:::
+
+:::{.fragment}
+Ends with `</tag>`
+:::
+
+:::{.fragment}
+Elements can be nested, meaning you can have one element within another
+:::
+
+:::{.fragment}
+Examples can be <i>headings, paragraphs, lists</i> etc
+:::
+
+:::{.fragment}
+There can be multiple elements of the same type in a web page. _How would you identify different elements of the same type? Each element will have a unique xpath or both._
+:::
+
+:::{.fragment}
+[Here is a reference of HTML elements from W3School](https://www.w3schools.com/tags/default.asp)
+:::
+
+## What are Attributes?
+
+:::{.fragment}
+Elements of same _type, say a heading,_ can have different attributes.
+:::
+
+:::{.fragment}
+
+Consider this example
+
+```
+<h3 style="color:blue;text-align:center">This is a header</h3>
+<h3 style="color:red;text-align:right">This is a header</h3>
+```
+<br>
+<h3 style="color:blue;text-align:center">This is a header</h3>
+<h3 style="color:red;text-align:right">This is a header</h3>
+
+:::
+:::{.fragment}
+[Here is a reference of attributes from W3School](https://www.w3schools.com/tags/ref_attributes.asp)
+:::
+
+## The Family {.smaller}
+
+
+::::{.columns}
+
+:::{.column width="40%"}
+HTML code
+
+```
+<p>
+This is the random stuff that comes out of my brain. It has no meaning. How many tomatoes are there in ketchup bottle.
+
+  <ul>
+    <li>potatoes, but potatoes have eyes
+      <li>Stop this madness</li>
+    </li>
+    <li>tomatoes, do tomatoes have toes??</li>
+  </ul>
+
+</p>
+```
+
+:::
+
+:::{.column width="30%"}
+HTML output<br>
+This is the random stuff that comes out of my brain. It has no meaning. How many tomatoes are there in ketchup bottle.
+
+- potatoes, but potatoes have eyes
+  - Stop this madness
+- tomatoes, do tomatoes have toes??
+:::
+
+:::{.column width="30%"}
+The Family
+
+- The Ancestors
+- The Descendants 
+- The Parent & Child
+- The siblings
+:::
+
+::::
+
+## This is all you need to know about HTML {style="text-align:center;padding:250px 0"}
+
+## Reckless coding detour
+
+Here we will try to scrap from a webpage _without really knowing the details of the functions._
+
+. . .
+
+Navigate to [https://www.giantbomb.com/looney-tunes/3025-714/characters/](https://www.giantbomb.com/looney-tunes/3025-714/characters/) in your browser.
+
+. . . 
+
+Take good look at this website
+
+. . . 
+
+Here is what we want:
+
+  - Get names of all the characters on this page
+  - Get Description of all these characters as well
+  - Create a data frame with columns name and description
+
+## Reckless coding continued
+
+Load libraries
+
+```{r libs, eval=FALSE,echo=TRUE}
+
+
+library(dplyr)
+library(rvest)
+```
+
+. . . 
+
+Run this command, is returns the html code of the webpage
+
+```{r readhtml, eval=FALSE,echo=TRUE}
+
+
+read_html("put the url of the webpage here")
+```
+
+. . . 
+
+Use CSS selector or the inspect element in browser to find element of character names
+
+. . .
+
+```{r findelements, eval=FALSE,echo=TRUE}
+
+
+read_html("put the url of the webpage here") %>% 
+  html_elements("put desired element's name here")
+```
+
+check output, not exactly what we want is it?
+
+## Reckless coding continued {.scrollable}
+The output
+
+```{r findelements1,echo=FALSE}
+
+rvest::read_html("https://www.giantbomb.com/looney-tunes/3025-714/characters/") |>
+  rvest::html_elements("h3")
+```
+
+Add this to the code
+
+```{r getelementstext, eval=FALSE,echo=TRUE}
+
+
+read_html("put the url of the webpage here") %>% 
+  html_elements("put desired element's name here") %>% 
+  html_text()
+```
+
+## Somethings is not just right yet
+
+```{r getelementstext1, echo=FALSE}
+
+
+rvest::read_html("https://www.giantbomb.com/looney-tunes/3025-714/characters/") |>
+  rvest::html_elements("h3") |> 
+  rvest::html_text()
+```
+
+. . .
+
+try using `h3.title` instead. Can you guess what happened? Save the output as an object, say `char_name`
+
+## Getting the Character Description {.smaller .scrollable}
+
+A problem you will face:
+
+  - the `p` element is not just used for the description of the characters in this webpage.
+  
+. . .
+  
+So, what to do:
+
+  - Get more precise. See the xpath for each description 
+
+. . .
+ 
+:::{.fragment .highlight-blue}
+Do you see a pattern?
+:::
+
+. . .
+  
+```{r getdescrip, eval=FALSE,echo=TRUE}
+
+# function to get the description
+
+get_description <- function(xp){
+  
+  read_html("https://www.giantbomb.com/looney-tunes/3025-714/characters/") |>
+  html_element(xpath = xp) |> 
+  html_text()
+  
+}
+
+# generate all xpaths that you want
+
+vec_all_xpaths <- paste0('//*[@id="wiki-3025-714-characters"]/ul[1]/li[',c(1:30),']/a/p')
+
+# get description for all characters
+
+char_description <- purrr::map_chr(.x = vec_all_xpaths,.f = get_description)
+
+# create the data frame
+
+tibble::tibble(
+  character = char_name,
+  description = char_description 
+)
+
+```
+
