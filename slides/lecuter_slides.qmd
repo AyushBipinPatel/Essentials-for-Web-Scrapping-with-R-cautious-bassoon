@@ -414,4 +414,22 @@ looney_page |>
   rvest::html_elements(xpath = '//*[@id="wiki-3025-714-characters"]/ul[1]/li[1]/a/h3')
 ```
 
-## 
+## `html_text()`^[Details from documentation]
+
+`html_elements()` get what we want, just not how we want it.
+
+. . .
+
+This is where `html_text()` can help.
+
+. . . 
+
+__Required Input (x)__: A document, node or nodes. Like `looney_chars`
+
+. . . 
+
+__Other Inputs (trim)__ : Remove spaces from the beginning and end
+
+. . .
+
+_Returns a character vector._
