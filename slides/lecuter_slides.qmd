@@ -3,7 +3,7 @@ title: "Essentials for Web Scrapping with R"
 author: "Ayush Patel"
 format: 
   revealjs:
-    self-contained: true
+    standalone: true
     slide-number: c/t
     width: 1400
     theme: [serif, theme.scss]
@@ -488,3 +488,120 @@ rvest::read_html("https://doe.gov.in/whos-who")|>
 ## There is much more to learn about {rvest} {style="text-align:center;padding:250px 0"}
 
 __What we have covered is sufficient as a building block of working knowledge to scrape webpages.__
+
+## A samll test
+
+Navigate to [RStudio's github](https://github.com/orgs/rstudio/repositories).
+
+. . .
+
+This will take you to the first page of all the repositories of RStudio.
+
+. . .
+
+__Write code to scrape names of all the repositories on this page.__
+
+## What did you notice?
+
+- There are more repositories than visible on this page.
+
+. . .
+
+- At the bottom of the page there are numbers that can allow us to see more repositories.
+
+. . .
+
+- Does the URL change when you move from page 1 to page 2 or any other page?
+
+. . . 
+
+__How to deal with this?? If we want all repos from all pages.__
+
+. . . 
+
+__{purrr} can help__ This requires a little detour.
+
+## The Detour - two more topics to learn 
+
+
+
+:::{.incremental}
+
+- wrap a sequence of commands into a function - simple ones
+- use {purrr} to iterate
+
+:::
+
+
+## Essentials of Functions and Functional Programming
+
+
+```{r echo=FALSE,out.width="80%", out.extra='style = "align=center"',}
+knitr::include_url("https://ayushbipinpatel.github.io/R-for-Data-Analysis/functions-and-functional-programming.html#1",height = "500px")
+```
+
+## Back to the problem - Create Function
+
+- Use the code you wrote to get repo names and convert it into a function.
+
+. . . 
+
+- This function should expect css or xpath of elements you want and the url of the page you want
+
+. . . 
+
+- This function should return the names of all the repos on a given page 
+
+. . . 
+
+- Test this function
+
+## Back to the probelem - Apply the function using {purrr}
+
+- Prepare data needed to get names of all repos from all pages
+
+. . .
+
+- Use `map` or `pmap` according to your need with the function you created
+
+. . .
+
+## The solution {.scrollable}
+
+__First write the function__
+
+```{r write_fun, echo=TRUE}
+get_desired_text <- function(which_element,which_url){
+  rvest::read_html(which_url) |> 
+    rvest::html_elements("h3>a") |>
+    rvest::html_text(trim = T)
+  
+}
+
+```
+
+__Second prepare data__
+
+```{r prep_data, echo=TRUE}
+
+tibble::tibble(
+  url = paste0("https://github.com/orgs/rstudio/repositories?page=", c(1:11)),
+  desired_ele = rep("h3>a",11)
+) -> data_what_you_want
+
+```
+
+__Third apply function__
+
+```{r apply}
+
+purrr::pmap(.l = list(
+  which_url = data_what_you_want$url[1:3],
+  which_element = data_what_you_want$desired_ele[1:3]
+),.f = get_desired_text) |> purrr::reduce(c)
+
+```
+
+## Automate browsers with {rselenium} {style="text-align:center;padding:250px 0"}
+
+__Because sometimes there is no other way__
