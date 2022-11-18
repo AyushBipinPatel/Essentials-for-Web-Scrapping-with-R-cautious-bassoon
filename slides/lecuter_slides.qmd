@@ -593,7 +593,7 @@ tibble::tibble(
 
 __Third apply function__
 
-```{r apply}
+```{r apply, echo=TRUE}
 
 purrr::pmap(.l = list(
   which_url = data_what_you_want$url[1:3],
