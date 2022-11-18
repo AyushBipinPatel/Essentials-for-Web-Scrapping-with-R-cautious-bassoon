@@ -1312,7 +1312,7 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>get_desired_text <span class="ot">&lt;-</span> <span class="cf">function</span>(which_element,which_url){</span>
 <span id="cb22-2"><a href="#cb22-2"></a>  rvest<span class="sc">::</span><span class="fu">read_html</span>(which_url) <span class="sc">|&gt;</span> </span>
-<span id="cb22-3"><a href="#cb22-3"></a>    rvest<span class="sc">::</span><span class="fu">html_elements</span>(<span class="st">"h3&gt;a"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>    rvest<span class="sc">::</span><span class="fu">html_elements</span>(which_element) <span class="sc">|&gt;</span></span>
 <span id="cb22-4"><a href="#cb22-4"></a>    rvest<span class="sc">::</span><span class="fu">html_text</span>(<span class="at">trim =</span> T)</span>
 <span id="cb22-5"><a href="#cb22-5"></a>  </span>
 <span id="cb22-6"><a href="#cb22-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

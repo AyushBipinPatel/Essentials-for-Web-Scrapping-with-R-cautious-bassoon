@@ -573,7 +573,7 @@ __First write the function__
 ```{r write_fun, echo=TRUE}
 get_desired_text <- function(which_element,which_url){
   rvest::read_html(which_url) |> 
-    rvest::html_elements("h3>a") |>
+    rvest::html_elements(which_element) |>
     rvest::html_text(trim = T)
   
 }
