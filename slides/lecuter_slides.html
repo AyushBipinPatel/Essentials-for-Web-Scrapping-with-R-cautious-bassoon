@@ -7,7 +7,7 @@
 <link href="lecuter_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="lecuter_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="lecuter_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.1.189">
+  <meta name="generator" content="quarto-1.2.269">
 
   <meta name="author" content="Ayush Patel">
   <title>Essentials for Web Scrapping with R</title>
@@ -387,11 +387,18 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
+<section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Essentials for Web Scrapping with R</h1>
-  <p class="author">Ayush Patel</p>
-</section>
 
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Ayush Patel 
+</div>
+</div>
+</div>
+
+</section>
 <section id="why-are-you-here" class="slide level2">
 <h2>Why are you here</h2>
 <div class="columns">
@@ -946,20 +953,20 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
 #   ⁶​`Address(Residence)`
 
 [[5]]
-# A tibble: 22 × 9
+# A tibble: 21 × 9
    Name            Desig…¹ Divis…² Telep…³ Telep…⁴ Inter…⁵ Room …⁶ Addre…⁷ Email
    &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;
- 1 Smt.Annie G. M… Specia… "Perso… 011-23… NA      5648    39-A, … "Bunga… "mat…
- 2 Smt. Sudha Raj… PSO to… "Perso… 011-23… NA      5648    36, No… ""      "Sud…
- 3 Ms. Divya Alat… Direct… "Admin" 230926… NA      5693    168-C,… ""      "div…
- 4 Shri Shyam Kis… Sr. PP… "Admin" 011-23… NA      5616    169-A,… ""      "kis…
- 5 Shri S.N. Rana  Under … "GAD/C… 011-23… NA      5665    56A, N… ""      "ran…
- 6 Shri K J Bhatt  Under … ""      230957… NA      5722    225-E,… ""      ""   
- 7 Sh. Ranjit Kum… Under … "Admin… 011-23… NA      5695    225-E,… ""      "ran…
- 8 Shri Pravin Ku… Under … "Admn." 230957… NA      5722    225E, … ""      ""   
- 9 Sh. Pijush Moh… Under … "Vigil… 230956…  9.54e9 5656    231 No… "32-A,… "pij…
-10 Sh. Ravi Kumar  SO      "GAD"   230956… NA      5621, … 56A, N… ""      ""   
-# … with 12 more rows, and abbreviated variable names ¹​Designation,
+ 1 Smt.Annie G. M… Specia… Person… 011-23… NA      5648    39-A, … "Bunga… "mat…
+ 2 Smt. Sudha Raj… PSO to… Person… 011-23… NA      5648    36, No… ""      "Sud…
+ 3 Ms. Divya Alat… Direct… Admin   230926… NA      5693    168-C,… ""      "div…
+ 4 Shri Shyam Kis… Sr. PP… Admin   011-23… NA      5616    169-A,… ""      "kis…
+ 5 Shri S.N. Rana  Under … GAD/Co… 011-23… NA      5665    56A, N… ""      "ran…
+ 6 Shri Pravin Ku… Under … Admn.   230957… NA      5722    225E, … ""      ""   
+ 7 Sh. Ranjit Kum… Under … Admin/… 011-23… NA      5695    225-E,… ""      "ran…
+ 8 Sh. Ravi Kumar  SO      GAD     230956… NA      5621, … 56A, N… ""      ""   
+ 9 Sh. Pijush Moh… Under … Vigila… 230956…  9.54e9 5656    231 No… "32-A,… "pij…
+10 Shri Rajeshwar… Deputy… Offici… 011-23… NA      5620    261, N… ""      "raj…
+# … with 11 more rows, and abbreviated variable names ¹​Designation,
 #   ²​`Division/section`, ³​`Telephone (Office)`, ⁴​`Telephone(Residence)`,
 #   ⁵​`Intercom No.`, ⁶​`Room No.`, ⁷​`Address(Residence)`
 # ℹ Use `print(n = ...)` to see more rows
@@ -975,9 +982,9 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
  5 Sh. Avinash K … Deputy… E.II -A 230926… NA         5609 48 -E,… ""      "avi…
  6 Sh. Umesh Kuma… Deputy… E. III… 011-23… NA         5667 225-D,… ""      "uk[…
  7 Sh. B. Sengupta D.S.    E.III-… 230927… NA         5723 76 -A/… ""      ""   
- 8 Sh. B.K. Manth… D.S.    E.Coor… 230945… NA         5669 74-C N… ""      ""   
- 9 Shri Ram Gopal  Deputy… E.III B 230922… NA         5726 30A, N… ""      ""   
-10 Sh. Sunil Kumar Deputy… E.Coor… 230957… NA         5705 79, No… ""      "sun…
+ 8 Shri Ram Gopal  Deputy… E.III B 230922… NA         5726 30A, N… ""      ""   
+ 9 Sh. B.K. Manth… D.S.    E.Coor… 230945… NA         5669 74-C N… ""      ""   
+10 Shri R.D.Taluk… Direct… E-III … 246279… NA           NA 502/LNB ""      ""   
 # … with 24 more rows, and abbreviated variable names ¹​Designation,
 #   ²​`Division/section`, ³​`Telephone (Office)`, ⁴​`Telephone(Residence)`,
 #   ⁵​`Intercom No.`, ⁶​`Room No.`, ⁷​`Address(Residence)`
@@ -999,38 +1006,30 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
 10 Smt. Kavita S… PS      ""      "24618… NA            NA "508,L… ""      ""   
 11 Sh. Lalit Kum… SO      ""      "24618… NA            NA "508,L… ""      ""   
 12 Sh. Raj Kumar  SO      "RTI"   "24654…  8.45e 9      NA "511, … ""      ""   
-13 Sh. Rajesh Sh… SO      "SIU"   "24654…  9.01e 9      NA "511, … ""      ""   
-14 Sh.Santosh Ku… Careta… ""      "24618… NA            NA "508/L… "E-163… ""   
+13 Sh.Santosh Ku… Careta… ""      "24618… NA            NA "508/L… "E-163… ""   
+14 Sh. Rajesh Sh… SO      "SIU"   "24654…  9.01e 9      NA "511, … ""      ""   
 # … with abbreviated variable names ¹​Designation, ²​`Division/section`,
 #   ³​`Telephone (Office)`, ⁴​`Telephone(Residence)`, ⁵​`Intercom No.`,
 #   ⁶​`Room No.`, ⁷​`Address(Residence)`
 
 [[8]]
-# A tibble: 19 × 9
+# A tibble: 21 × 9
    Name           Desig…¹ Divis…² Telep…³ Teleph…⁴ Inter…⁵ Room …⁶ Addre…⁷ Email
    &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;
- 1 Shri Amit Sin… Joint … "PFC-I" 230948… NA       "5652"  "142-B… ""      "neg…
- 2 Shri Rajesh D… PPS to… "PFC.I" 011-23… NA       "5679"  "166-E… ""      "raj…
- 3 Mrs. Kavita M… PPS     "PFC.I" 011-23… NA       "5679"  "166 E… "EA-25… "m[d…
- 4 Shri M K Sahoo Adviser ""      011-24… NA       ""      "504, … ""      "mks…
- 5 Sh. Rana Muke… PA to … ""      011-24… NA       ""      ""      ""      "ran…
- 6 Shri Sushobha… SSO     "O/o A… 011-24…  9.20e11 ""      "505, … ""      "s[d…
- 7 Sh. L.K. Triv… Direct… "PFC.I" 230933… NA       "5642"  "264 C… ""      "lk[…
- 8 Ms Swayamprav… Direct… "PFC.I" 230926… NA       "5636"  "225-C… ""      "swa…
- 9 P. Parthiban   Deputy… "PFC I" 011230… NA       "5645"  "167 B… ""      "p[d…
-10 Ms. Shalaka K… Deputy… "PFC.I" 230956… NA       "5664"  "79, N… ""      ""   
-11 CA Ranganath … Deputy… "PFC.I" 011-23… NA       "5696"  "R No.… "Db001… "ran…
-12 Sh. Partha Pa… US      "PFC.I" 230956… NA       "5643"  "77,NB" ""      ""   
-13 Sh. Krishnaka… S.O-PF  "PFC-I" 230956… NA       "5622,… "65,NB" ""      ""   
-14 Sh. Mangal Pr… S.O.    "PFC-I" 230956… NA       "5651"  "77/NB" ""      ""   
-15 Rajesh Vermani S.O.    "PFC-I" 230956… NA       "5651"  "77,NB" ""      ""   
-16 Sh...........… S.O.    "PFC-I" 230956… NA       "5622"  "65"    ""      ""   
-17 Ms. Subha Vij… S.O.    "PFC-I" 230956… NA       "5622"  "65/NB" ""      ""   
-18 Ms. Aruna Aro… Asstt.… "PFC-I" 230956… NA       "5622,… "65/NB" ""      ""   
-19 Shri Tanveer … Assist… "PFC.I" 230956… NA       "5622,… "65 No… ""      ""   
-# … with abbreviated variable names ¹​Designation, ²​`Division/section`,
-#   ³​`Telephone (Office)`, ⁴​`Telephone(Residence)`, ⁵​`Intercom No.`,
-#   ⁶​`Room No.`, ⁷​`Address(Residence)`
+ 1 Shri Amit Sin… Joint … "PFC-I" 230948… NA       "5652"  "142-B… ""      negi…
+ 2 Shri Rajesh D… PPS to… "PFC.I" 011-23… NA       "5679"  "166-E… ""      raje…
+ 3 Mrs. Kavita M… PPS     "PFC.I" 011-23… NA       "5679"  "166 E… "EA-25… m[do…
+ 4 Shri M K Sahoo Adviser ""      011-24… NA       ""      "504, … ""      mksa…
+ 5 Sh. Rana Muke… PS to … ""      011-24… NA       ""      ""      ""      rana…
+ 6 Shri Sushobha… SSO     "O/o A… 011-24…  9.20e11 ""      "505, … ""      s[do…
+ 7 Sh. L.K. Triv… Direct… "PFC.I" 230933… NA       "5642"  "264 C… ""      lk[d…
+ 8 Ms Swayamprav… Direct… "PFC.I" 230926… NA       "5636"  "225-C… ""      sway…
+ 9 Sh. Prateek K… Direct… "PFC.I" 230949… NA       "5660"  "76, N… ""      prat…
+10 P. Parthiban   Deputy… "PFC I" 011230… NA       "5645"  "167 B… ""      p[do…
+# … with 11 more rows, and abbreviated variable names ¹​Designation,
+#   ²​`Division/section`, ³​`Telephone (Office)`, ⁴​`Telephone(Residence)`,
+#   ⁵​`Intercom No.`, ⁶​`Room No.`, ⁷​`Address(Residence)`
+# ℹ Use `print(n = ...)` to see more rows
 
 [[9]]
 # A tibble: 1 × 9
@@ -1042,21 +1041,20 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
 #   ⁶​`Room No.`, ⁷​`Address(Residence)`
 
 [[10]]
-# A tibble: 12 × 9
+# A tibble: 11 × 9
    Name            Desig…¹ Divis…² Telep…³ Telep…⁴ Inter…⁵ Room …⁶ Addre…⁷ Email
    &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;
- 1 Dr. Sajjan Sin… "Addit… "PF St…  2.31e7 NA      "5673"  169-C,… ""      "JSP…
+ 1 Dr. Sajjan Sin… "Addit… "PF St…  2.31e7 NA      "5673"  169-C,… ""      "jsp…
  2 Sh Ravinder Ku… "PSO t… "PF St…  2.31e7 NA      "5682"  143, N… "."     ""   
  3 Mrs. Poonam Ch… "PPS t… "PF St…  2.31e7 NA      "5682"  143, N… ""      ""   
- 4 Sh. Prateek Ku… "Direc… "PFC.I"  2.31e7 NA      "5660"  76, No… ""      "pra…
- 5 Sh Deependra K… "Direc… "PF St…  2.31e7  9.45e9 "5612"  145,NB  ""      "kum…
- 6 Shri Gurpreet … "Direc… "PF-St…  2.31e7 NA      "5691"  162,No… ""      "gsa…
- 7 Shri Mahendra … "Assis… "PF St… NA      NA      ""      79,Nor… ""      ""   
- 8 Shri Sumit Aga… "Deput… "PFS"    2.31e7 NA      "5700"  79, No… ""      "agr…
+ 4 Sh Deependra K… "Direc… "PF St…  2.31e7  9.45e9 "5612"  145,NB  ""      "kum…
+ 5 Shri Gurpreet … "Direc… "PF-St…  2.31e7 NA      "5691"  162,No… ""      "gsa…
+ 6 Shri Mahendra … "Assis… "PF St… NA      NA      ""      79,Nor… ""      ""   
+ 7 Shri Sumit Aga… "Deput… "PFS"    2.31e7 NA      "5700"  79, No… ""      "agr…
+ 8 Shri. Neeraj B… "PPS t… "PFC-I"  2.31e7 NA      "5647"  75, No… ""      ""   
  9 Ms. Anjali Mau… "Assis… "PF St…  2.31e7 NA      "5697"  80, No… ""      "mau…
 10 PF (State)      ""      ""       2.31e7 NA      "5625,… 80,NB   ""      ""   
 11 Sh.             "AAO"   "PF-St…  2.31e7 NA      "5726"  30 A    ""      ""   
-12 Shri Rabi Ranj… "Deput… "PFC.I"  2.31e7 NA      "5672"  264,No… ""      ""   
 # … with abbreviated variable names ¹​Designation, ²​`Division/section`,
 #   ³​`Telephone (Office)`, ⁴​`Telephone(Residence)`, ⁵​`Intercom No.`,
 #   ⁶​`Room No.`, ⁷​`Address(Residence)`
@@ -1067,8 +1065,8 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt; &lt;lgl&gt;     &lt;int&gt; &lt;chr&gt;   &lt;lgl&gt;   &lt;chr&gt;
 1 Shri Sanjay Pra… Addl. … "PF Ce…  2.31e7 NA         5720 161,NB  NA      "js[…
 2 Sh. Tilak Raj G… PPS     ""       2.31e7 NA         5698 163,NB  NA      ""   
-3 Ms. Hema Jaiswal Direct… ""       2.31e7 NA         5614 167-B,… NA      ""   
-4 Mr. Amit Kumar   Joint … "PFC -…  2.31e7 NA         5688 162, N… NA      ""   
+3 Mr. Amit Kumar   Joint … "PFC -…  2.31e7 NA         5688 162, N… NA      ""   
+4 Ms. Hema Jaiswal Direct… ""       2.31e7 NA         5614 167-B,… NA      ""   
 5 Shri V Padmanab… Deputy… "PFC-I…  2.46e7 NA           NA 501, L… NA      ""   
 6 Sh. Rangin Murmu Deputy… "PFC-I…  2.31e7 NA         5701 79, No… NA      ""   
 7 Sh. Aayush Bans… Deputy… "PFC-I…  2.31e7 NA         5644 79, No… NA      "abc…
@@ -1169,14 +1167,13 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
 #   ⁶​`Room No.`, ⁷​`Address(Residence)`
 
 [[18]]
-# A tibble: 5 × 9
+# A tibble: 4 × 9
   Name             Desig…¹ Divis…² Telep…³ Telep…⁴ Inter…⁵ Room …⁶ Addre…⁷ Email
   &lt;chr&gt;            &lt;chr&gt;   &lt;lgl&gt;     &lt;int&gt; &lt;lgl&gt;     &lt;int&gt; &lt;chr&gt;   &lt;lgl&gt;   &lt;chr&gt;
 1 Sh. Alok Ranjan  Chief … NA       2.31e7 NA         5729 240-B,… NA      "cca…
 2 Shri Vivekanand  Contro… NA       2.31e7 NA         5730 241-A,… NA      "ana…
-3 Sh. Vikas Chand… DCA Fi… NA      NA      NA           NA 401, E… NA      "vc[…
+3 Shri Himanshu S… ACA Fi… NA       2.37e7 NA           NA 401, E… NA      "sri…
 4 Sh.              Dy. Co… NA       2.31e7 NA           NA R. No.… NA      ""   
-5 Shri Himanshu S… ACA Fi… NA       2.31e8 NA           NA 269, N… NA      "sri…
 # … with abbreviated variable names ¹​Designation, ²​`Division/section`,
 #   ³​`Telephone (Office)`, ⁴​`Telephone(Residence)`, ⁵​`Intercom No.`,
 #   ⁶​`Room No.`, ⁷​`Address(Residence)`
@@ -1331,59 +1328,230 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
 <span id="cb24-3"><a href="#cb24-3"></a>  <span class="at">which_element =</span> data_what_you_want<span class="sc">$</span>desired_ele[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
 <span id="cb24-4"><a href="#cb24-4"></a>),<span class="at">.f =</span> get_desired_text) <span class="sc">|&gt;</span> purrr<span class="sc">::</span><span class="fu">reduce</span>(c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "rstudio-docker-products"  "hex-stickers"            
- [3] "rstudio"                  "shiny"                   
- [5] "vetiver-python"           "shinycoreci"             
- [7] "tinytex-releases"         "gt"                      
- [9] "actions"                  "bslib"                   
-[11] "bsicons"                  "shinyuieditor"           
-[13] "vetiver-r"                "htmltools"               
-[15] "rsconnect-python"         "sass"                    
-[17] "py-shiny"                 "bookdown.org"            
-[19] "markdown"                 "helm"                    
-[21] "py-shinywidgets"          "package-manager-demo"    
-[23] "packrat"                  "pins-python"             
-[25] "pins-r"                   "cheatsheets"             
-[27] "platform-lib"             "shiny-workflows"         
-[29] "vscode-codicons"          "r-manuals"               
-[31] "ai-blog"                  "shinytest2"              
-[33] "shinyvalidate"            "rmarkdown"               
-[35] "rsconnect-jupyter"        "bookdown"                
-[37] "renv"                     "learnr"                  
-[39] "blogdown"                 "rsconnect"               
-[41] "connectwidgets"           "rstudioapi"              
-[43] "rmarkdown-cookbook"       "pool"                    
-[45] "shinylive"                "r-docker"                
-[47] "vetiver.rstudio.com"      "sol-eng-demo-server"     
-[49] "plumbertableau"           "connectapi"              
-[51] "python-builds"            "leaflet"                 
-[53] "r-system-requirements"    "gradethis"               
-[55] "DT"                       "py-shinylive"            
-[57] "rstudio-cloud-tools"      "fontawesome"             
-[59] "rstudio-conf"             "mleap"                   
-[61] "reticulate"               "pyshiny-vscode"          
-[63] "environments.rstudio.com" "pkgs.rstudio.com"        
-[65] "tensorflow"               "tblcheck"                
-[67] "shiny-server-client"      "rticles"                 
-[69] "issuetriager"             "tensorflow.rstudio.com"  
-[71] "gridlayout"               "plumber"                 
-[73] "rscloud"                  "promises"                
-[75] "keras"                    "py-htmltools"            
-[77] "py-faicons"               "tufte"                   
-[79] "tinytex"                  "pagedown"                
-[81] "quillt"                   "fsbench"                 
-[83] "reactlog"                 "goex"                    
-[85] "checkrs-tew"              "shinydashboard"          
-[87] "distill"                  "jquerylib"               
-[89] "spark.rstudio.com"        "r-builds"                </code></pre>
+<pre><code> [1] "shinycoreci"                    "bookdown.org"                  
+ [3] "gt"                             "leaflet"                       
+ [5] "rstudio"                        "shiny"                         
+ [7] "shinyapps-package-dependencies" "shinyuieditor"                 
+ [9] "rstudio-docker-products"        "rmarkdown"                     
+[11] "packrat"                        "py-shiny"                      
+[13] "pins-r"                         "rticles"                       
+[15] "pins-python"                    "rsconnect"                     
+[17] "package-manager-demo"           "keras"                         
+[19] "vetiver-python"                 "tensorflow"                    
+[21] "tensorflow.rstudio.com"         "reticulate"                    
+[23] "rsconnect-python"               "vscode-codicons"               
+[25] "tinytex-releases"               "r-manuals"                     
+[27] "py-htmltools"                   "bslib"                         
+[29] "shiny-server"                   "helm"                          
+[31] "ps-cheatsheet-metrics"          "gradethis"                     
+[33] "httpuv"                         "thematic"                      
+[35] "vetiver-r"                      "bookdown"                      
+[37] "tinytex"                        "pagedown"                      
+[39] "rsc-hello-world-content"        "renv"                          
+[41] "connectwidgets"                 "DT"                            
+[43] "blogdown"                       "platform-lib"                  
+[45] "r-system-requirements"          "shinylive"                     
+[47] "py-shinywidgets"                "shinytest2"                    
+[49] "r-docker"                       "py-shinylive"                  
+[51] "checkrs-tew"                    "htmltools"                     
+[53] "bookdown-demo"                  "shinyvalidate"                 
+[55] "tblcheck"                       "rsconnect-jupyter"             
+[57] "plumber"                        "hex-stickers"                  
+[59] "tfhub"                          "r-builds"                      
+[61] "rstudio-cloud-tools"            "vetiver.rstudio.com"           
+[63] "shinytest"                      "sol-eng-demo-server"           
+[65] "connect-api-deploy-shiny"       "connectapi"                    
+[67] "sass"                           "bsicons"                       
+[69] "actions"                        "markdown"                      
+[71] "cheatsheets"                    "shiny-workflows"               
+[73] "ai-blog"                        "learnr"                        
+[75] "rstudioapi"                     "rmarkdown-cookbook"            
+[77] "pool"                           "plumbertableau"                
+[79] "python-builds"                  "fontawesome"                   
+[81] "rstudio-conf"                   "mleap"                         
+[83] "pyshiny-vscode"                 "environments.rstudio.com"      
+[85] "pkgs.rstudio.com"               "shiny-server-client"           
+[87] "issuetriager"                   "gridlayout"                    
+[89] "rscloud"                        "promises"                      </code></pre>
 </div>
 </div>
 </section>
 <section id="automate-browsers-with-rselenium" class="slide level2" style="text-align:center;padding:250px 0">
 <h2>Automate browsers with {rselenium}</h2>
 <p><strong>Because sometimes there is no other way</strong></p>
+</section>
+<section id="system-requirements" class="slide level2" style="text-align:center;padding:250px 0">
+<h2>System requirements</h2>
+<p><strong>You should have selenium server installed on your machine</strong></p>
+<p><strong>You will need any one of these browsers (preferably a recent release version): Chrome, Firefox, PhantomJs or Internet Explorer</strong></p>
+</section>
+<section id="start-the-seleniumserver" class="slide level2">
+<h2>Start the seleniumserver</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Use your preferred browser --------</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a></span>
+<span id="cb26-3"><a href="#cb26-3"></a>RSelenium<span class="sc">::</span><span class="fu">rsDriver</span>(<span class="at">browser =</span> <span class="st">"chrome"</span>,</span>
+<span id="cb26-4"><a href="#cb26-4"></a>                    <span class="at">port =</span> 4444L,</span>
+<span id="cb26-5"><a href="#cb26-5"></a>                    <span class="at">chromever =</span> <span class="st">"108.0.5359.71"</span>) <span class="ot">-&gt;</span> rd <span class="co"># save as an object</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a></span>
+<span id="cb26-7"><a href="#cb26-7"></a><span class="do">## or </span></span>
+<span id="cb26-8"><a href="#cb26-8"></a></span>
+<span id="cb26-9"><a href="#cb26-9"></a>RSelenium<span class="sc">::</span><span class="fu">rsDriver</span>(<span class="at">browser =</span> <span class="st">"firefox"</span>,</span>
+<span id="cb26-10"><a href="#cb26-10"></a>                    <span class="at">port =</span> 4444L) <span class="ot">-&gt;</span> rd <span class="co"># save as an object</span></span>
+<span id="cb26-11"><a href="#cb26-11"></a></span>
+<span id="cb26-12"><a href="#cb26-12"></a></span>
+<span id="cb26-13"><a href="#cb26-13"></a><span class="co"># work with the client ----------</span></span>
+<span id="cb26-14"><a href="#cb26-14"></a></span>
+<span id="cb26-15"><a href="#cb26-15"></a>rd<span class="sc">$</span>client <span class="ot">-&gt;</span> rdc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Check class and names within <code>rd</code></strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">class</span>(rd)</span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="fu">names</span>(rd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="close-the-client-and-stop-the-server" class="slide level2">
+<h2>Close the client and stop the server</h2>
+<p>After completing the task <strong>close the client and the server</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># close client</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a></span>
+<span id="cb28-3"><a href="#cb28-3"></a>rdc<span class="sc">$</span><span class="fu">close</span>()</span>
+<span id="cb28-4"><a href="#cb28-4"></a></span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="co"># stop server</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a></span>
+<span id="cb28-7"><a href="#cb28-7"></a>rd[[<span class="st">'server'</span>]]<span class="sc">$</span><span class="fu">stop</span>()</span>
+<span id="cb28-8"><a href="#cb28-8"></a></span>
+<span id="cb28-9"><a href="#cb28-9"></a><span class="do">## or</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a></span>
+<span id="cb28-11"><a href="#cb28-11"></a>rd<span class="sc">$</span>server<span class="sc">$</span><span class="fu">stop</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="navigate-to-a-webpage" class="slide level2">
+<h2>Navigate to a webpage</h2>
+<p><em>Start your server and create a client object</em> - A one time step</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Use your preferred browser --------</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a></span>
+<span id="cb29-3"><a href="#cb29-3"></a>RSelenium<span class="sc">::</span><span class="fu">rsDriver</span>(<span class="at">browser =</span> <span class="st">"chrome"</span>,</span>
+<span id="cb29-4"><a href="#cb29-4"></a>                    <span class="at">port =</span> 4444L,</span>
+<span id="cb29-5"><a href="#cb29-5"></a>                    <span class="at">chromever =</span> <span class="st">"108.0.5359.71"</span>) <span class="ot">-&gt;</span> rd <span class="co"># save as an object</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a></span>
+<span id="cb29-7"><a href="#cb29-7"></a><span class="co"># work with the client ----------</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a></span>
+<span id="cb29-9"><a href="#cb29-9"></a>rd<span class="sc">$</span>client <span class="ot">-&gt;</span> rdc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Use client object <code>rdc</code> to navigate to a URL</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>rdc<span class="sc">$</span><span class="fu">navigate</span>(<span class="st">"URL"</span>) <span class="co"># replace the URL with the link to the webpage, say https://data.worldbank.org/ for example</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="find-elements-on-a-webpage" class="slide level2">
+<h2>Find elements on a webpage</h2>
+<p>Selenium can find elements using any of these locators. Table from selenium documentation.</p>
+
+<table style="font-size:18px;">
+<thead>
+<tr>
+<th>
+Locator
+</th>
+<th>
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+class name
+</td>
+<td>
+Locates elements whose class name contains the search value (compound class names are not permitted)
+</td>
+</tr>
+<tr>
+<td>
+css selector
+</td>
+<td>
+Locates elements matching a CSS selector
+</td>
+</tr>
+<tr>
+<td>
+id
+</td>
+<td>
+Locates elements whose ID attribute matches the search value
+</td>
+</tr>
+<tr>
+<td>
+name
+</td>
+<td>
+Locates elements whose NAME attribute matches the search value
+</td>
+</tr>
+<tr style="background-color:LightGreen;">
+<td>
+link text
+</td>
+<td>
+Locates anchor elements whose visible text matches the search value
+</td>
+</tr>
+<tr>
+<td>
+partial link text
+</td>
+<td>
+Locates anchor elements whose visible text contains the search value. If multiple elements are matching, only the first one will be selected.
+</td>
+</tr>
+<tr>
+<td>
+tag name
+</td>
+<td>
+Locates elements whose tag name matches the search value
+</td>
+</tr>
+<tr style="background-color:LightGreen;">
+<td>
+xpath
+</td>
+<td>
+Locates elements matching an XPath expression
+</td>
+</tr>
+</tbody>
+
+</table>
+<p><em>We will focus on <code>link text</code> and <code>xpath</code></em></p>
+</section>
+<section id="find-element-and-click-on-it" class="slide level2">
+<h2>Find Element and click on it</h2>
+<p><em>All operations are done using the client object <code>rdc.</code></em></p>
+<div class="fragment">
+<p><em>The <code>rdc</code> object contains several functions withing it.</em></p>
+<p>Try typing <code>rdc$</code> and press the <code>tab</code> key - this gives the functions within the <code>rdc</code> object.</p>
+</div>
+<div class="fragment">
+<p>We will find the element “Country” on this page <a href="https://data.worldbank.org/">https://data.worldbank.org/</a></p>
+<p>This element has a link and the text on this element is “Country”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>element_country <span class="ot">&lt;-</span> rdc<span class="sc">$</span><span class="fu">findElement</span>(<span class="at">using =</span> <span class="st">"link text"</span>, <span class="st">"Country"</span>) <span class="co"># find using link text</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a></span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="co"># click on the element</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a></span>
+<span id="cb31-5"><a href="#cb31-5"></a>ele_country<span class="sc">$</span><span class="fu">clickElement</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
 
@@ -1604,12 +1772,15 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -1620,13 +1791,6 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
               window.jQuery(currentSlide).trigger("shown");
             }
           }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
         }
 
         // hookup for slidy
@@ -1678,7 +1842,24 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -1716,24 +1897,42 @@ This is the random stuff that comes out of my brain. It has no meaning. How many
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
     });
     </script>

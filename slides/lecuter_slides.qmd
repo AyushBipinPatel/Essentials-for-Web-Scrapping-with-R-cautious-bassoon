@@ -605,3 +605,127 @@ purrr::pmap(.l = list(
 ## Automate browsers with {rselenium} {style="text-align:center;padding:250px 0"}
 
 __Because sometimes there is no other way__
+
+## System requirements {style="text-align:center;padding:250px 0"}
+
+
+__You should have selenium server installed on your machine__
+
+
+__You will need any one of these browsers (preferably a recent release version): Chrome, Firefox, PhantomJs or Internet Explorer__
+
+
+## Start the seleniumserver
+
+```{r start_selenium, eval=FALSE, echo = TRUE}
+
+# Use your preferred browser --------
+
+RSelenium::rsDriver(browser = "chrome",
+                    port = 4444L,
+                    chromever = "108.0.5359.71") -> rd # save as an object
+
+## or 
+
+RSelenium::rsDriver(browser = "firefox",
+                    port = 4444L) -> rd # save as an object
+
+
+# work with the client ----------
+
+rd$client -> rdc
+
+```
+
+__Check class and names within `rd`__
+
+```{r check_rd, eval=FALSE, echo = TRUE}
+class(rd)
+
+names(rd)
+```
+
+## Close the client and stop the server
+
+After completing the task __close the client and the server__
+
+```{r close_stop, eval=FALSE,echo=TRUE}
+
+# close client
+
+rdc$close()
+
+# stop server
+
+rd[['server']]$stop()
+
+## or
+
+rd$server$stop()
+
+
+```
+
+## Navigate to a webpage
+
+_Start your server and create a client object_ - A one time step
+
+```{r start_prep, echo=TRUE,eval=FALSE}
+
+
+# Use your preferred browser --------
+
+RSelenium::rsDriver(browser = "chrome",
+                    port = 4444L,
+                    chromever = "108.0.5359.71") -> rd # save as an object
+
+# work with the client ----------
+
+rd$client -> rdc
+
+```
+
+
+__Use client object `rdc` to navigate to a URL__
+
+```{r nav, echo=TRUE,eval=FALSE}
+
+rdc$navigate("URL") # replace the URL with the link to the webpage, say https://data.worldbank.org/ for example
+```
+
+## Find elements on a webpage
+
+Selenium can find elements using any of these locators. Table from selenium documentation.
+
+<table style="font-size:18px;"><thead><tr><th>Locator</th><th>Description</th></tr></thead><tbody><tr><td>class name</td><td>Locates elements whose class name contains the search value (compound class names are not permitted)</td></tr><tr><td>css selector</td><td>Locates elements matching a CSS selector</td></tr><tr><td>id</td><td>Locates elements whose ID attribute matches the search value</td></tr><tr><td>name</td><td>Locates elements whose NAME attribute matches the search value</td></tr><tr style="background-color:LightGreen;"><td>link text</td><td>Locates anchor elements whose visible text matches the search value</td></tr><tr><td>partial link text</td><td>Locates anchor elements whose visible text contains the search value. If multiple elements are matching, only the first one will be selected.</td></tr><tr><td>tag name</td><td>Locates elements whose tag name matches the search value</td></tr><tr style="background-color:LightGreen;"><td>xpath</td><td>Locates elements matching an XPath expression</td></tr></tbody></table>
+
+_We will focus on `link text` and `xpath`_
+
+
+## Find Element and click on it
+
+_All operations are done using the client object `rdc.`_
+
+. . . 
+
+_The `rdc` object contains several functions withing it._
+
+Try typing `rdc$` and press the `tab` key - this gives the functions within the `rdc` object.
+
+. . .
+
+We will find the element "Country" on this page [https://data.worldbank.org/](https://data.worldbank.org/)
+
+This element has a link and the text on this element is "Country"
+
+```{r code_ex_find_ele, echo=TRUE,eval=FALSE}
+element_country <- rdc$findElement(using = "link text", "Country") # find using link text
+
+# click on the element
+
+ele_country$clickElement()
+```
+
+## Find element and send keys
+
+
