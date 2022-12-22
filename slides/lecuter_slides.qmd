@@ -728,4 +728,75 @@ ele_country$clickElement()
 
 ## Find element and send keys
 
+Navigate the client browser to [https://doe.gov.in/whos-who](https://doe.gov.in/whos-who)
 
+. . .
+
+We need to write a name in the `Name` text input box and press enter
+
+. . .
+
+First find the element using xpath - //*[@id="edit-title"]
+
+And save as an object, say `ele_name`
+
+. . .
+
+Use the following code snippets to send keys to the input box
+
+```{r code_ex_send_key, echo=TRUE, eval=FALSE}
+ele_name$sendKeysToElement(list("prakhar", key = "enter"))
+```
+
+Also, checkout the object `RSelenium::selKeys` in your console
+
+## Downloading files from Client browser
+
+Navigate to the URL [https://www.upsc.gov.in/content/71st-annual-report](https://www.upsc.gov.in/content/71st-annual-report)
+
+```{r ex_nav1,echo=TRUE,eval=FALSE}
+rdc$navigate("https://www.upsc.gov.in/content/71st-annual-report")
+```
+
+. . . 
+
+Find element using xpath
+
+```{r ex_find_ele,echo=TRUE,eval=FALSE}
+ele_report <- rdc$findElement(value = '/html/body/section[2]/div/div[2]/div/h1/a')
+```
+
+. . . 
+
+Get the element's link
+
+```{r ex_code_get_href, echo=TRUE,eval=FALSE}
+ele_report$getElementAttribute("href")|>
+  unlist() -> link_report
+```
+
+. . . 
+
+Use the utils `download.files` to download the file.
+
+```{r ex_codedownload, echo=TRUE,eval=FALSE}
+download.file(link_report, "fl.pdf")
+```
+
+
+## Dont forget to close the browser and stop the server {style="text-align:center;padding:250px 0"}
+
+```{r excode_stop_all, echo=TRUE,eval = FALSE}
+
+# close client
+
+rdc$close()
+
+# stop server
+
+rd[['server']]$stop()
+
+```
+
+
+## Fin. {style="text-align:center;padding:250px 0"}

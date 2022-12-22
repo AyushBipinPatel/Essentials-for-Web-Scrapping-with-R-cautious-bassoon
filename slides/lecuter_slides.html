@@ -1549,9 +1549,68 @@ Locates elements matching an XPath expression
 <span id="cb31-4"><a href="#cb31-4"></a></span>
 <span id="cb31-5"><a href="#cb31-5"></a>ele_country<span class="sc">$</span><span class="fu">clickElement</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</section>
+<section id="find-element-and-send-keys" class="slide level2">
+<h2>Find element and send keys</h2>
+<p>Navigate the client browser to <a href="https://doe.gov.in/whos-who">https://doe.gov.in/whos-who</a></p>
+<div class="fragment">
+<p>We need to write a name in the <code>Name</code> text input box and press enter</p>
+</div>
+<div class="fragment">
+<p>First find the element using xpath - //*<span class="citation" data-cites="id">[@id="edit-title"]</span></p>
+<p>And save as an object, say <code>ele_name</code></p>
+</div>
+<div class="fragment">
+<p>Use the following code snippets to send keys to the input box</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>ele_name<span class="sc">$</span><span class="fu">sendKeysToElement</span>(<span class="fu">list</span>(<span class="st">"prakhar"</span>, <span class="at">key =</span> <span class="st">"enter"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Also, checkout the object <code>RSelenium::selKeys</code> in your console</p>
+</div>
+</section>
+<section id="downloading-files-from-client-browser" class="slide level2">
+<h2>Downloading files from Client browser</h2>
+<p>Navigate to the URL <a href="https://www.upsc.gov.in/content/71st-annual-report">https://www.upsc.gov.in/content/71st-annual-report</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>rdc<span class="sc">$</span><span class="fu">navigate</span>(<span class="st">"https://www.upsc.gov.in/content/71st-annual-report"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Find element using xpath</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>ele_report <span class="ot">&lt;-</span> rdc<span class="sc">$</span><span class="fu">findElement</span>(<span class="at">value =</span> <span class="st">'/html/body/section[2]/div/div[2]/div/h1/a'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>Get the element’s link</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>ele_report<span class="sc">$</span><span class="fu">getElementAttribute</span>(<span class="st">"href"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">unlist</span>() <span class="ot">-&gt;</span> link_report</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>Use the utils <code>download.files</code> to download the file.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">download.file</span>(link_report, <span class="st">"fl.pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="dont-forget-to-close-the-browser-and-stop-the-server" class="slide level2" style="text-align:center;padding:250px 0">
+<h2>Dont forget to close the browser and stop the server</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># close client</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a></span>
+<span id="cb37-3"><a href="#cb37-3"></a>rdc<span class="sc">$</span><span class="fu">close</span>()</span>
+<span id="cb37-4"><a href="#cb37-4"></a></span>
+<span id="cb37-5"><a href="#cb37-5"></a><span class="co"># stop server</span></span>
+<span id="cb37-6"><a href="#cb37-6"></a></span>
+<span id="cb37-7"><a href="#cb37-7"></a>rd[[<span class="st">'server'</span>]]<span class="sc">$</span><span class="fu">stop</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fin." class="slide level2" style="text-align:center;padding:250px 0">
+<h2>Fin.</h2>
 <div class="footer footer-default">
 
-</div>
 </div>
 </section>
 
